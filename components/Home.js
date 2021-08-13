@@ -78,7 +78,7 @@ export default function Home() {
                     </View>
                     <View flexDirection='row' style={{ marginTop: 80, left: 9 }}>
                         <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Khám phá thêm</Text>
-                        <Icon style={{ textAlign: 'center' }} name="star" size={20} color="yellow" />
+                        <Icon style={{ textAlign: 'center' }} name="star" size={18} color="yellow" />
                     </View>
                 </View>
             </ScrollView>
