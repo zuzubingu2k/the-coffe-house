@@ -9,7 +9,7 @@ const DATA = [
         id: '58694a0f-3da1-471f-bd96-145571e29d72',
         image: 'https://vn-test-11.slatic.net/p/a7ecd9a18dabfc2105aeabc00bd457b8.jpg_800x800Q100.jpg',
         title2: 'One Shulder Cami Bodysuit',
-        title3: '120$',
+        title3: '1200$',
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d72',
