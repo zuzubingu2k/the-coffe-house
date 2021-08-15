@@ -1,16 +1,79 @@
 import React from 'react'
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, ImageBackground, Image } from 'react-native'
+import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, ImageBackground, Image, Button, FlatList } from 'react-native'
 import Barcode from "react-native-barcode-builder";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Swiper from 'react-native-swiper'
 
+const DATA = [
+    {
+        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        image: 'https://vn-test-11.slatic.net/p/a7ecd9a18dabfc2105aeabc00bd457b8.jpg_800x800Q100.jpg',
+        title2: 'One Shulder Cami Bodysuit',
+        title3: '120$',
+    },
+    {
+        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        image: 'https://vuakhuyenmai.vn/wp-content/uploads/the-coffee-house-khuyen-mai-40off-2-7-2021.jpg',
+        title2: 'Twist-Font Crop Top',
+        title3: '55,99$',
+    },
+    {
+        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        image: 'https://stc.shopiness.vn/deal/2020/07/09/e/1/c/3/1594285314024_540.png',
+        title2: 'Racerback Mock Neck',
+        title3: '200$',
+    },
+    {
+        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        image: 'https://stc.shopiness.vn/deal/2021/03/17/8/3/7/7/1615964681763_540.png',
+        title2: 'Racerback Mock Neck',
+        title3: '200$',
+    },
+    {
+        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        image: 'https://feed.thecoffeehouse.com/content/images/2020/02/viber_image_2020-02-17_09-38-42.jpg',
+        title2: 'Thất Tịch Có Đôi,Nhà Mời Một Nửa',
+        title3: '200$',
+    },
+    {
+        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        image: 'https://file.hstatic.net/1000075078/file/giai_toi_dich_c87db2c6c7f44c43af7d5219b332fcf4_grande.jpg',
+        title2: 'Ưu Đãi Tháng 8 Từ Nhà',
+        title3: '200$',
+    },
+    {
+        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        image: 'https://stc.shopiness.vn/deal/2019/01/14/2/9/a/6/1547454256621_540.png',
+        title2: 'Thất Tịch Có Đôi,Nhà Mời Một Nửa',
+        title3: '200$',
+    },
+    {
+        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        image: 'https://stc.shopiness.vn/deal/2021/03/17/8/3/7/7/1615964681763_540.png',
+        title2: 'Thất Tịch Có Đôi,Nhà Mời Một Nửa',
+        title3: '200$',
+    },
+]
 export default function Home() {
     const image = { uri: "https://thumbs.dreamstime.com/b/vector-card-design-hand-drawn-coffee-dessert-illustration-coffee-shop-cafe-template-decorative-background-frame-90033724.jpg" };
-
+    const renderItem = ({ item }) => (
+        <TouchableOpacity>
+            <View style={styles.item}>
+                <Image
+                    style={{ height: 200, width: 200 }}
+                    source={{
+                        uri: item.image,
+                    }}
+                />
+                <View><Text style={styles.texttitle}>{item.title2}</Text></View>
+                <View><Text style={styles.texttitle}>{item.title3}</Text></View>
+            </View>
+        </TouchableOpacity>
+    )
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-                <View style={{ height: 1300 }}>
+                <View style={{ height: 2000 }}>
                     <View style={styles.header}>
                         <ImageBackground source={image} resizeMode="cover" style={styles.image}>
 
@@ -80,6 +143,32 @@ export default function Home() {
                         <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Khám phá thêm</Text>
                         <Icon style={{ textAlign: 'center' }} name="star" size={18} color="yellow" />
                     </View>
+                    <View style={{ flexDirection: "row", top: 10, marginLeft: 10 }}>
+                        <View style={{ flex: 1 }}>
+                            <TouchableOpacity>
+                                <Text>Ưu đãi đặc biệt</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{ flex: 1 }}>
+                            <TouchableOpacity>
+                                <Text> Cập nhật từ nhà</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{ flex: 1 }}>
+                            <TouchableOpacity>
+                                <Text>#coffelover</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <View style={{ top: 50 }}>
+                        <FlatList
+                            data={DATA}
+                            renderItem={renderItem}
+                            keyExtractor={item => item.id}
+                            numColumns={2}
+
+                        />
+                    </View>
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -134,6 +223,19 @@ const styles = StyleSheet.create({
         borderWidth: 0.3,
         borderColor: 'black',
         borderRadius: 6,
+    },
+    buttonList: {
+        borderWidth: 1, borderRadius: 20
+    },
+    item: {
+        marginLeft: 5,
+        padding: 0,
+        marginVertical: 8,
+        marginHorizontal: 16,
+    },
+    texttitle: {
+        width: 150,
+        marginLeft: 5,
     }
 })
 
