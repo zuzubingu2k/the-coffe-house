@@ -1,0 +1,1 @@
+export const baseURL = 'https://api.thecoffeehouse.com/api/v2/menu/'

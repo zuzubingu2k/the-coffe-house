@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, ImageBackground, Image, Button, FlatList } from 'react-native'
 import Barcode from "react-native-barcode-builder";
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Swiper from 'react-native-swiper'
+import Swiper from 'react-native-swiper';
 
 const DATA = [
     {
@@ -54,7 +54,13 @@ const DATA = [
         title3: '200$',
     },
 ]
-export default function Home() {
+
+export default function Home({ route, navigation }) {
+
+
+
+
+
     const image = { uri: "https://thumbs.dreamstime.com/b/vector-card-design-hand-drawn-coffee-dessert-illustration-coffee-shop-cafe-template-decorative-background-frame-90033724.jpg" };
     const renderItem = ({ item }) => (
         <TouchableOpacity>
@@ -99,13 +105,13 @@ export default function Home() {
 
                     <View style={styles.bannerShip}>
                         <View style={{ borderRightWidth: 0.5, flex: 1 }}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.navigate('San pham')}>
                                 <Icon style={{ textAlign: 'center', top: 20 }} name="truck" size={40} color="pink" />
                                 <Text style={{ textAlign: 'center', top: 15 }}>Giao hang</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={{ flex: 1 }}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.navigate('San pham')}>
                                 <Icon style={{ textAlign: 'center', top: 20 }} name="coffee" size={40} color="pink" />
                                 <Text style={{ textAlign: 'center', top: 15 }}>Mang di</Text>
                             </TouchableOpacity>
